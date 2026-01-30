@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Daily Schedule Simulation</title>
+</head>
+<body style="font-family: sans-serif; text-align: center; padding-top: 60px; background-color: #eef;">
+
+  <h1>My Simulated Day</h1>
+  <div id="output" style="margin-top: 40px; font-size: 1.5rem;"></div>
+
+  <script>
+    // Activities array: each with a message and delay in milliseconds
+    const activities = [
+      { message: "Wake up and do some yoga 🧘", delay: 2000 },
+      { message: "Eat breakfast 🥯", delay: 4000 },
+      { message: "Go to work 🤓", delay: 6000 },
+      { message: "Lunch 🥪", delay: 8000 },
+      { message: "Work on JavaScript homework 💻", delay: 10000 },
+      { message: "Evening walk 🚶‍♀️‍➡️", delay: 12000 },
+      { message: "Read a book 📖", delay: 14000 },
+      { message: "Wind down and go to sleep 😴", delay: 16000 }
+    ];
+
+    // Loop through activities and display them with setTimeout
+    activities.forEach((act) => {
+      setTimeout(() => {
+        output.textContent = act.message;
+      }, act.delay);
+    });
+
+    // THE TWIST: Random Evening Event
+    setTimeout(() => {
+      const events = [
+        "🍻 Surprise! Friends invited you for drinks!",
+        "📖 Quiet night: You stayed up until 2am to finish that book.",
+        "🛏️ Insomnia: You woke up in the middle of the night and couldn't sleep",
+      ];
+      const randomEvent = events[Math.floor(Math.random() * events.length)];
+      
+      output.innerHTML += `<p style="color: #555; font-style: italic; margin-top: 20px;">
+                            ✨ Evening Twist: ${randomEvent}
+                          </p>`;
+    }, 18000);
+
+  </script>
+
+</body>
+</html>
+
